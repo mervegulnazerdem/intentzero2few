@@ -1,6 +1,6 @@
+from __future__ import annotations
 from typing import Dict, Optional
-import json
-import pandas as pd
+import json, pandas as pd
 
 def load_intents(path: str) -> Dict[str, pd.DataFrame]:
     with open(path, "r", encoding="utf-8") as f:

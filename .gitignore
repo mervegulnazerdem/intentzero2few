@@ -16,3 +16,8 @@ cache/
 .DS_Store
 *.swp
 /.cache/
+.env
+.git-credentials
+.netrc
+runs/latest
+reports/latest

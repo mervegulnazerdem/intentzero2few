@@ -1,6 +1,5 @@
-import random
-import numpy as np
-
+from __future__ import annotations
+import random, numpy as np
 SEED = 42
 TEXT_COL = "text"
 LABEL_COL = "intent"

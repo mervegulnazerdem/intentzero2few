@@ -1,17 +1,14 @@
-from typing import Dict, Iterable, Optional, Set, Tuple
+from __future__ import annotations
+from typing import Iterable, Optional
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
-def _normalize_label(x)->str:
-    return "" if x is None else str(x).strip()
+def _normalize_label(x)->str: return "" if x is None else str(x).strip()
+def _normcase(x)->str: return _normalize_label(x).casefold()
+def _oos_norm_set(oos_labels: Optional[Iterable[str]]): return { _normcase(lbl) for lbl in (oos_labels or []) }
 
-def _normcase(x)->str:
-    return _normalize_label(x).casefold()
-
-def _oos_norm_set(oos_labels: Optional[Iterable[str]]):
-    return { _normcase(lbl) for lbl in (oos_labels or []) }
-
-def fit_label_encoder(train_df: pd.DataFrame, label_col: str = "intent", oos_labels: Optional[Iterable[str]]=("OOS","__NEG__")):
+def fit_label_encoder(train_df: pd.DataFrame, label_col: str = "intent",
+                      oos_labels: Optional[Iterable[str]]=("OOS","__NEG__")):
     oos = _oos_norm_set(oos_labels)
     labs = train_df[label_col].apply(_normalize_label)
     mask = labs.apply(lambda v: _normcase(v) in oos)
@@ -21,7 +18,8 @@ def fit_label_encoder(train_df: pd.DataFrame, label_col: str = "intent", oos_lab
     i2l = {int(i):lbl for lbl,i in l2i.items()}
     return le,l2i,i2l
 
-def encode_in_scope_labels(df: pd.DataFrame, le: LabelEncoder, label_col="intent", oos_labels=("OOS","__NEG__"), oos_sentinel=-1, out_col="label_id"):
+def encode_in_scope_labels(df: pd.DataFrame, le: LabelEncoder, label_col="intent",
+                           oos_labels=("OOS","__NEG__"), oos_sentinel=-1, out_col="label_id"):
     df = df.copy()
     oos = _oos_norm_set(oos_labels)
     labs = df[label_col].apply(_normalize_label)
