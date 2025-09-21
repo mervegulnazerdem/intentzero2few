@@ -1,0 +1,31 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+env/
+venv/
+
+# local secrets / creds
+.netrc
+.git-credentials
+.env
+
+# big local artifacts (keep out of git)
+data/
+outputs/
+checkpoints/
+cache/
+*.ckpt
+
+# notebook/editor cruft
+.ipynb_checkpoints/
+.DS_Store
+*.swp
+/.cache/
+
+# do not commit the 'latest' symlink
+runs/latest
+reports/latest
+runs/

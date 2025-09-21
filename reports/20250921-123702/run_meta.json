@@ -1,0 +1,26 @@
+{
+  "thresholds": {
+    "global": {
+      "tau": 0.2,
+      "source": "val_polluted"
+    },
+    "clean": {
+      "tau": 0.2,
+      "source": "val_clean"
+    },
+    "polluted": {
+      "tau": 0.2,
+      "source": "val_polluted"
+    }
+  },
+  "k_best": null,
+  "mapping_stats": {
+    "n_super": 8,
+    "n_intents": 150,
+    "avg_per_super": 18.75
+  },
+  "run": {
+    "run_id": "20250921-123702",
+    "timestamp_utc": 1758460120
+  }
+}
