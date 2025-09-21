@@ -4,6 +4,7 @@
 
 ## Flow (ASCII)
 
+```text
 FLOW (Zero→Few Robust Pipeline)
 ┌─────────┐
 │  Input  │  CLINC_OOS (train/val/test + OOS)
@@ -29,6 +30,7 @@ FLOW (Zero→Few Robust Pipeline)
     ├─▶ Few-shot K={1,5,10}
     │
     └─▶ Reports (tables + figs + artifacts) → reports/<RUN_ID>/
+```
 
 ## Flow (Mermaid)
 
@@ -41,25 +43,27 @@ B --> E[Prep: augmented train >=30K]
 B --> F[Prep: noisy train/test]
 E --> G[Discovery: super-intents (K-means)]
 G --> H[Zero-shot centroids]
-D --> I[τ calibration on val_polluted]
+D --> I[tau calibration on val_polluted]
 H --> J[Evaluate: clean/noisy/polluted]
 F --> J
-B --> K[Baselines TFIDF+LR, BERT-Linear + τ]
+B --> K[Baselines TFIDF+LR, BERT-Linear + tau]
 B --> L[Few-shot K=1/5/10]
 J --> M[Reports: zs_summary, heatmaps]
 K --> M
 L --> M
+```
 
 ## Key Artifacts (present)
 - intent_descriptions.csv
 - zs_summary.csv
 - baseline_robustness.csv
 - fewshot_summary.csv
+- benchmark_summary.csv
+- summary_metrics.csv
 - run_meta.json
 - zs_confmat_clean.png
 - zs_confmat_noisy.png
 - zs_confmat_polluted.png
 
 ## Key Artifacts (missing / to be generated)
-- benchmark_summary.csv
 - wordcloud_train.png
