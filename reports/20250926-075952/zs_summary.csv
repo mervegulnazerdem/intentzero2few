@@ -1,0 +1,4 @@
+model,variant,split,accuracy,macro_f1,tau,auroc_oos,fpr@tpr95,in_scope_acc_on_accepted
+ZeroShot,desc+ex,test_clean,0.7891111111111111,0.7231438350876834,0.2,,,
+ZeroShot,desc+ex,test_noisy,0.728,0.6688351458396725,0.2,,,
+ZeroShot,desc+ex,test_polluted,0.7314545454545455,0.7425027892413889,0.2,0.8529097777777778,0.5877777777777777,0.8329814684494488
